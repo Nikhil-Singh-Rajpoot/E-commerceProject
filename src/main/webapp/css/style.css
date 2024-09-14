@@ -1,19 +1,30 @@
 @charset "UTF-8";
-body{
-	background-color:rgb(193, 227, 251);
+
+body {
+	background-color: rgb(193, 227, 251);
 }
 
-.custom-bs{
-	background:#6dcbf6!important 
+.custom-bs {
+	background: #6dcbf6 !important
 }
 
 .transparent-div {
-    background-color: rgba(255, 255, 255, 0.5); /* White with 50% opacity */
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 5px;
+	background-color: rgba(255, 255, 255, 0.5);
+	/* White with 50% opacity */
+	border: 1px solid #ddd;
+	padding: 20px;
+	border-radius: 5px;
 }
-.img-logo{
-	 border: 1px solid #ddd;
-	 border-radius: 20px;
+
+.img-logo {
+	border: 1px solid #ddd;
+	border-radius: 20px;
+}
+
+.image-container {
+	height: 100vh;
+	/* Make sure the height matches the screen size */
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }

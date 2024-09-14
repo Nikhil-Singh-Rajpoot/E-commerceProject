@@ -55,6 +55,7 @@ public class RegisterServlet extends HttpServlet {
 				String userPhone = request.getParameter("user_phone");
 				String userAddress = request.getParameter("user_address");
 				/* Here we add all data in user class */
+				
 				User user = new User(userName, userEmail, userPassword, userPhone, "Default.jpg", userAddress,"normal");
 				//Here we create Hibernate session factory 
 				Session hibernateSession = ServiceProvider.getFactory().openSession();
