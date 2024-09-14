@@ -2,8 +2,11 @@ package com.esite.entites;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
@@ -13,7 +16,7 @@ public class Category {
 	private String categoryTitle;
 	private String categoryDescription;
 	@OneToMany(mappedBy = "category")
-	private List<Product> products = new ArrayList<>();
+	private List<Product> products = new ArrayList<Product>();
 
 	public Category(int categoryId, String categoryTitle, String categoryDescription, List<Product> products) {
 		super();

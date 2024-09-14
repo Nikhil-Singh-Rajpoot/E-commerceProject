@@ -9,7 +9,6 @@ public class ServiceProvider {
 
 	// Create a method to get SessionFactory Object
 	public static SessionFactory getFactory() {
-
 		try {
 			if (factory == null)
 				factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
