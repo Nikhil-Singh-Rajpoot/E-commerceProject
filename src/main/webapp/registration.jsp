@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<%@include file="components/common_css_js.jsp"%>
-<title>TanviMart - Registration</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <%@include file="components/common_css_js.jsp"%>
+    <title>Registration - TanviMart</title> 
 </head>
 <body>
 	<%@include file="components/nevbar.jsp"%>
@@ -22,7 +22,7 @@
 				<div class="card transparent-div p-2">
 				<%@include file="components/message.jsp" %>
 					<div class="card-body ">
-						<h2 class="text-center my-3">Sign up here !!</h2>
+						<h2 class="text-center my-3 custom-bs pb-2 pt-2">Sign up here !!</h2>
 						<form action="RegisterServlet" method="post">
 							<div class="form-group">
 								<label for="name" class="form-label">User Name</label> <input

@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<%@include file="components/common_css_js.jsp"%>
-<title>TanviMart - Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%@include file="components/common_css_js.jsp"%>
+    <title>Login - TanviMart</title>
 </head>
 <body>
 	<%@include file="components/nevbar.jsp"%>
@@ -16,6 +16,10 @@
            <div class="image-container" style="height: 100%; width: 100%; background-size: contain; background-position: center; background-image: url(img/login.png); background-repeat: no-repeat;">
             </div>
         </div>
+        <!-- Mobile image (Visible only on smaller devices) -->
+            <div class="col-12 d-block d-md-none text-center mb-3">
+                <img src="img/login.png" alt="Login Image" style="max-width: 100%; height: auto;">
+            </div>
 
         <!-- Right Column with Login Form -->
         <div class="col-md-5 offset-md-2">
