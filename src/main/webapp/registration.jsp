@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta  charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
    <%@include file="components/common_css_js.jsp"%>
     <title>Registration - TanviMart</title> 
 </head>

@@ -1,0 +1,12 @@
+Service\ServiceProvider.class
+com\esite\dao\UserDao.class
+UserDefineException\EmailAlreadyUsed.class
+com\esite\entites\ProductDao.class
+com\esite\servlets\ProductOperationServlet.class
+com\esite\servlets\Login.class
+com\esite\servlets\LogoutServlet.class
+com\esite\entites\Category.class
+com\esite\servlets\RegisterServlet.class
+com\esite\dao\CategoryDao.class
+com\esite\entites\Product.class
+com\esite\entites\User.class

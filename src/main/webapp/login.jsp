@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%@include file="components/common_css_js.jsp"%>
+ <meta  charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - TanviMart</title>
+     <%@include file="components/common_css_js.jsp"%>
 </head>
 <body>
 	<%@include file="components/nevbar.jsp"%>
