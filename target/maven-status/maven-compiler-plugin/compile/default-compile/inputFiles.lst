@@ -1,4 +1,4 @@
-F:\Spark 2.0\E-CommersSite\src\main\java\com\esite\entites\ProductDao.java
+F:\Spark 2.0\E-CommersSite\src\main\java\Service\Helper.java
 F:\Spark 2.0\E-CommersSite\src\main\java\Service\ServiceProvider.java
 F:\Spark 2.0\E-CommersSite\src\main\java\com\esite\servlets\LogoutServlet.java
 F:\Spark 2.0\E-CommersSite\src\main\java\com\esite\servlets\Login.java
@@ -8,5 +8,6 @@ F:\Spark 2.0\E-CommersSite\src\main\java\com\esite\servlets\RegisterServlet.java
 F:\Spark 2.0\E-CommersSite\src\main\java\com\esite\entites\Product.java
 F:\Spark 2.0\E-CommersSite\src\main\java\com\esite\servlets\ProductOperationServlet.java
 F:\Spark 2.0\E-CommersSite\src\main\java\UserDefineException\EmailAlreadyUsed.java
-F:\Spark 2.0\E-CommersSite\src\main\java\com\esite\entites\Category.java
 F:\Spark 2.0\E-CommersSite\src\main\java\com\esite\entites\User.java
+F:\Spark 2.0\E-CommersSite\src\main\java\com\esite\dao\ProductDao.java
+F:\Spark 2.0\E-CommersSite\src\main\java\com\esite\entites\Category.java

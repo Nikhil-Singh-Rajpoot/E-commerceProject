@@ -60,19 +60,28 @@ User user1 =(User)session.getAttribute("current-user");
 				</a></li>
 
 				<%                		
-                	}else{
+                	}else if(user1.getUserType().equals("admin")){
                 		
                 	%>
 
-				<li class="nav-item"><a class="nav-link" href="#">
-				<i class="bi bi-person-vcard-fill"></i> <%= user1.getUserName() %> </a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="LogoutServlet"><i class="bi bi-box-arrow-right"></i>  Logout
+				<li class="nav-item"><a class="nav-link" href="admin.jsp">
+						<i class="bi bi-person-vcard-fill"></i> <%= user1.getUserName() %>
 				</a></li>
+				<li class="nav-item"><a class="nav-link" href="LogoutServlet"><i
+						class="bi bi-box-arrow-right"></i> Logout </a></li>
 
 				<%
-                	}
+                	} else {
+                		
                 %>
+				<li class="nav-item"><a class="nav-link" href="normal.jsp">
+						<i class="bi bi-person-vcard-fill"></i> <%= user1.getUserName() %>
+				</a></li>
+				<li class="nav-item"><a class="nav-link" href="LogoutServlet"><i
+						class="bi bi-box-arrow-right"></i> Logout </a></li>
+				<%
+                }
+				%>
 			</ul>
 		</div>
 	</div>

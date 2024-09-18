@@ -30,7 +30,7 @@ public class CategoryDao {
 	
 	
 	//Write a method to get all category
-	public List<Category> getCategory(){
+	public static List<Category> getCategory(){
 		Session sess = factory.openSession();
 		Query query = sess.createQuery("from Category");
 		List<Category> list = query.list();

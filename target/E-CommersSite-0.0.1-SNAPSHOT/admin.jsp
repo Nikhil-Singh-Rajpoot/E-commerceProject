@@ -108,10 +108,7 @@ if (user == null) {
 						<h4 class="text-uppercase text-muted">Add Products</h4>
 					</div>
 				</div>
-
-
 			</div>
-
 		</div>
 	</div>
 
@@ -195,8 +192,8 @@ if (user == null) {
 						
 						<%
 												CategoryDao cat = new CategoryDao();
-																 List<Category> list=  cat.getCategory();
-												%>
+												List<Category> list=  cat.getCategory();
+						%>
 						<div class="form-group">
 							<select name="catId" class="form-control" id="">
 							

@@ -1,6 +1,15 @@
 package com.esite.servlets;
 
-import jakarta.servlet.ServletContext;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
+import com.esite.dao.CategoryDao;
+import com.esite.dao.ProductDao;
+import com.esite.entites.Category;
+import com.esite.entites.Product;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpServlet;
@@ -8,15 +17,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
-import com.esite.dao.CategoryDao;
-import com.esite.entites.Category;
-import com.esite.entites.Product;
-import com.esite.entites.ProductDao;
 
 @MultipartConfig
 public class ProductOperationServlet extends HttpServlet {
@@ -69,7 +69,9 @@ public class ProductOperationServlet extends HttpServlet {
 			ProductDao.saveProduct(p);
 
 			// save product img here
-			String path = "F:\\Spark 2.0\\E-CommersSite\\target\\E-CommersSite-0.0.1-SNAPSHOT\\img\\products"+File.separator+part.getSubmittedFileName();
+			String path = request.getServletContext().getRealPath("img")+File.separator+"products"+File.separator+part.getSubmittedFileName();
+			System.out.println(path);
+			//String path = "F:\\Spark 2.0\\E-CommersSite\\target\\E-CommersSite-0.0.1-SNAPSHOT\\img\\products"+File.separator+part.getSubmittedFileName();
 			System.out.println(path);
 			
 
