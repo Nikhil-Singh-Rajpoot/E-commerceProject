@@ -18,34 +18,66 @@
 <body>
 	<%@include file="components/nevbar.jsp"%>
 
-	<div class="row mt-4 mx-2">
+	<div class="row mt-3 mx-2">
 		<!-- Get all categories and Products  -->
 		<%
 		//All Products 
-		List<Product> pList = ProductDao.getProducts();
+		List<Product> pList;
 		//All Categories 
 		List<Category> cList = CategoryDao.getCategory();
+		
+		//get category id 
+		String catId="9312";
+         catId=request.getParameter("category");
+		
+		if(catId==null || catId.trim().equals("9312")){
+			pList  = ProductDao.getProducts();
+		}else{
+			
+			pList = ProductDao.getProductsByCatId(Integer.parseInt(catId));
+		}
+		
 		%>
 		<!-- This col for All Categories -->
 		<div class="col-md-2 ">
 			<div class="list-group ">
-				<a href="#"
-					class="list-group-item list-group-item-action active transparent-div custom-bs">
+			
+		<%
+		 	try
+		 	{
+		 	String tag="a";
+		 	if(catId==null||catId.equals("9312")){
+		 		tag="active";
+		 	}
+		 	%>
+		 	<a href="index.jsp?category=9312" class="list-group-item list-group-item-action <%=tag %>  transparent-div custom-bs">
 					All Products </a>
-
-				<%
+					<%
+					tag="a";
 				for (Category c : cList) {
+					
+					if(catId==null){
+						
+					} else if(c.getCategoryId()==Integer.parseInt(catId)){
+						tag="active";
+					}
+					
 				%>
-				<a href="#"
-					class="list-group-item list-group-item-action transparent-div custom-bs"><%=c.getCategoryTitle()%>
+				<a href="index.jsp?category=<%=c.getCategoryId()%>"
+					class="list-group-item list-group-item-action <%=tag%>  transparent-div custom-bs"><%=c.getCategoryTitle()%>
 				</a>
 				<%
+				tag=null;
 				}
-				%>
+				}catch(Exception e){
+				e.printStackTrace();
+				}
+				%> 
 			</div>
 		</div>
 
-		<div class="col-md-9 mx-4">
+<!-- Show all products   -->
+		<div class="col-md-10">
 			<!-- row -->
 			<div class="row mt-4">
 
@@ -60,14 +92,16 @@
 						%>
 				<!-- All Products print by card -->
 						<div class="card" style="width: 21rem;">
-							<div class="container text-center">
+							<div class="card-header container text-center">
 							<img class="card-img-top" style="max-height:250px; mx-width:100%; width: auto;" src="img\products\<%= p.getProductPhoto()%>" alt="Card image cap">
 							</div>
 							<div class="card-body">
 								<h5 class="card-title"> <%= p.getProductName() %></h5>
 								<p class="card-text"><%= Helper.get10Words(p.getProductDesc()) %></p>
-								<a href="#" class="btn btn-primary custom-bs">Add to Cart </a>
-								<a href="#" class="btn btn-outline-success">&#8377 <%=p.getProductPrice() %></a>
+								<div class="card-footer text-center">
+								<a href="#" class="btn btn-primary custom-bs" onclick="add_to_cart(<%= p.getProductId()%> , '<%=p.getProductName() %>' , <%=p.getProductPrice() %>)">Add to Cart </a>
+								<a href="#" class="btn btn-outline-success main-price-bottom"> &#8377;  <%=p.getDiscountPrice(p.getProductPrice()) %>/- <span class=" discount-lebal"><label class="label-price text-secondary"><%=p.getProductPrice() %> &#8377; </label>  <%= p.getProductDiscount() %>% off</span></a>
+								</div>
 							</div>
 						</div>
 						<%
@@ -78,8 +112,6 @@
 			</div>
 		</div>
 	</div>
-	<%
-	out.println(ServiceProvider.getFactory());
-	%>
+	<%@include file="components/common_modals.jsp"%>
 </body>
 </html>

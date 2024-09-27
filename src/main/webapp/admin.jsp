@@ -1,3 +1,6 @@
+<%@page import="java.util.Map"%>
+<%@page import="Service.ServiceProvider"%>
+<%@page import="Service.Helper"%>
 <%@page import="com.esite.entites.Category"%>
 <%@page import="java.util.List"%>
 <%@page import="com.esite.dao.CategoryDao"%>
@@ -17,6 +20,17 @@ if (user == null) {
 	return;
 }
 %>
+
+
+	<%
+			
+		 List<Category> list= CategoryDao.getCategory();
+		 
+		 //Getting count of Products and Users 
+		Map<String, Long> m =Helper.getCount(ServiceProvider.getFactory());
+	%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +56,7 @@ if (user == null) {
 							<img class="img-fluid" style="max-width: 120px" alt="img"
 								src="img/user.png">
 						</div>
-						<h4>543435+</h4>
+						<h4><%=m.get("user") %>+</h4>
 						<h4 class="text-uppercase text-muted">Users</h4>
 					</div>
 				</div>
@@ -55,7 +69,7 @@ if (user == null) {
 							<img class="img-fluid" style="max-width: 120px" alt="img"
 								src="img/categores.png">
 						</div>
-						<h4>543435+</h4>
+						<h4><%=list.size() %>+</h4>
 						<h4 class="text-uppercase text-muted">Categories</h4>
 					</div>
 				</div>
@@ -69,7 +83,7 @@ if (user == null) {
 							<img class="img-fluid" style="max-width: 120px" alt="img"
 								src="img/product.png">
 						</div>
-						<h4>543435+</h4>
+						<h4><%=m.get("product") %>+</h4>
 						<h4 class="text-uppercase text-muted">Products</h4>
 					</div>
 				</div>
@@ -193,10 +207,6 @@ if (user == null) {
 								placeholder="Enter Product Quntity " required>
 						</div>
 						
-						<%
-												CategoryDao cat = new CategoryDao();
-																 List<Category> list=  cat.getCategory();
-												%>
 						<div class="form-group">
 							<select name="catId" class="form-control" id="">
 							
@@ -225,6 +235,6 @@ if (user == null) {
 		</div>
 	</div>
 	<!-- End Product-model -->
-
+<%@include file="components/common_modals.jsp" %>
 </body>
 </html>

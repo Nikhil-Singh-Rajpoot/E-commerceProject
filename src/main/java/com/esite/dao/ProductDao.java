@@ -37,5 +37,15 @@ public class ProductDao {
 			sess.close();
 			return list;
 		}
+		
+		//Write a method to get all products by category
+				public static List<Product> getProductsByCatId(int catId){
+					Session sess = factory.openSession();
+					Query query = sess.createQuery("from Product as p where p.category.categoryId =: id");
+					query.setParameter("id", catId);
+					List<Product> list = query.list();
+					sess.close();
+					return list;
+				}
 
 }

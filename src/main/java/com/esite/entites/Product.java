@@ -123,5 +123,10 @@ public class Product {
 				+ ", productPhoto=" + productPhoto + ", productPrice=" + productPrice + ", productDiscount="
 				+ productDiscount + ", productQuantity=" + productQuantity + ", category=" + category + "]";
 	}
-
+	
+	//write a method to calculate discount of the product 
+	public int getDiscountPrice(int price) {
+		int res =(int) ((this.productDiscount/100.0)*price);
+		return price-res;
+	}
 }

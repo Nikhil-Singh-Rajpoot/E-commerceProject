@@ -36,3 +36,29 @@ body {
 .admin .card{
 	border: 1px solid black;
 }
+
+.discount-lebal{
+	font-size: 8px!important;
+	font-style: italic !important;
+	color: red;
+}
+
+.orginal-label{
+	font-size: 9px!important;
+	font-style: italic !important;
+}
+
+.label-price{
+	font-size: 10px!important;
+	font-style: italic !important;
+	text-decoration: line-through!important;
+}
+
+.main-price-bottom{
+	font-size: 13px!important;
+	font-style: italic !important;
+}
+
+.card-bg{
+	background-color: rgb(197, 223, 252);
+}

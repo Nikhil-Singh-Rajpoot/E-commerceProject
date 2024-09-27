@@ -1,4 +1,7 @@
 
+<%@page import="com.esite.entites.Category"%>
+<%@page import="java.util.List"%>
+<%@page import="com.esite.dao.CategoryDao"%>
 <%@page import="com.esite.entites.User"%>
 <%
 User user1 =(User)session.getAttribute("current-user");
@@ -18,6 +21,12 @@ User user1 =(User)session.getAttribute("current-user");
 			aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
+		
+	<!-- 	//fatching all category from database here  -->
+		<% 
+		//All Categories 
+				List<Category> catList = CategoryDao.getCategory();
+		%>
 
 		<!-- Navbar Links and Icons -->
 		<div class="collapse navbar-collapse" id="navbarNav">
@@ -31,11 +40,15 @@ User user1 =(User)session.getAttribute("current-user");
 					role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Categories </a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="#">Electronics</a></li>
-						<li><a class="dropdown-item" href="#">Fashion</a></li>
-						<li><a class="dropdown-item" href="#">Home & Kitchen</a></li>
-						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="#">More Categories</a></li>
+						
+						<%
+						for (Category c : catList) {
+						%>
+						<li><a class="dropdown-item" href="index.jsp?category=<%=c.getCategoryId()%>"><%=c.getCategoryTitle() %></a></li>
+						<%
+						}
+						%>
+						
 					</ul></li>
 			</ul>
 
@@ -43,8 +56,8 @@ User user1 =(User)session.getAttribute("current-user");
 			<ul class="navbar-nav ms-auto">
 				<li class="nav-item"><a class="nav-link" href="#"><i
 						class="bi bi-person-circle"></i> Account</a></li>
-				<li class="nav-item"><a class="nav-link" href="#"><i
-						class="bi bi-cart"></i> Cart (0)</a></li>
+				<li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#cart" href="#"><i
+						class="bi bi-cart cart-btn"></i>Cart <samp class="cart-item">(0)</samp></a></li>
 
 				<%
  
